@@ -1,10 +1,17 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { ErrorBoundary as ErrorBoundaryHelper, FallbackProps } from "react-error-boundary";
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from "@chakra-ui/react";
 import { NostrEvent } from "nostr-tools";
 import DebugEventButton from "./debug-modal/debug-event-button";
+import { captureBugstrException } from "../services/bugstr";
 
 export function ErrorFallback({ error, event }: Partial<FallbackProps> & { event?: NostrEvent }) {
+  // Send caught render errors to Bugstr once per boundary instance.
+  useEffect(() => {
+    if (!error) return;
+    captureBugstrException(error, event ? `render-error:${event.id}` : "render-error");
+  }, [error, event]);
+
   return (
     <Alert status="error">
       <AlertIcon />
