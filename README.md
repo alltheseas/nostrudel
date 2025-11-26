@@ -51,3 +51,18 @@ pnpm run dev
 ## Contributing
 
 This is only a personal project, so if you open any PRs please keep them small. thanks
+
+## Crash reporting (Bugstr)
+
+Enable optional Bugstr crash forwarding with environment variables:
+
+```bash
+VITE_BUGSTR_ENABLED=true \
+VITE_BUGSTR_NPUB=npub1... \
+VITE_BUGSTR_RELAYS=wss://relay1.example,wss://relay2.example \
+pnpm run dev
+```
+
+Optional: `VITE_BUGSTR_ENV` (defaults to Vite mode) and `VITE_APP_VERSION`/`VITE_COMMIT_HASH` (shown in reports).
+
+Bugstr runs on web builds only and prompts before sending. Trigger a test after init with `window.dispatchEvent(new ErrorEvent("error", { error: new Error("bugstr test") }))`.

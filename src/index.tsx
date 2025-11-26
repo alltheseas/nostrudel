@@ -7,6 +7,7 @@ import { logger } from "./helpers/debug";
 import { URLOpenListenerEvent, App as CapacitorApp } from "@capacitor/app";
 
 import "./services/debug-api";
+import "./services/bugstr";
 import "./services/decryption-cache";
 import "./services/lifecycle";
 

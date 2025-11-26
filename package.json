@@ -66,6 +66,7 @@
     "applesauce-sqlite": "^4.4.0",
     "applesauce-wallet": "^4.0.0",
     "blossom-client-sdk": "^4.1.0",
+    "bugstr-ts": "file:../Bugstr-TS",
     "canvas-confetti": "^1.9.4",
     "chart.js": "^4.5.1",
     "chroma-js": "^2.6.0",
