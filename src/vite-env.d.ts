@@ -33,3 +33,12 @@ declare module "virtual:pwa-register/react" {
     updateServiceWorker: (reloadPage?: boolean) => Promise<void>;
   };
 }
+
+interface ImportMetaEnv {
+  readonly VITE_BUGSTR_ENABLED?: string;
+  readonly VITE_BUGSTR_NPUB?: string;
+  readonly VITE_BUGSTR_RELAYS?: string;
+  readonly VITE_BUGSTR_ENV?: string;
+  readonly VITE_APP_VERSION?: string;
+  readonly VITE_COMMIT_HASH?: string;
+}
